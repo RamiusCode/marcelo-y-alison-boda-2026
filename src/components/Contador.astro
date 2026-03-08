@@ -1,0 +1,243 @@
+---
+// src/components/Contador.astro
+---
+
+<!-- TEXTO "FALTA PARA NUESTRA BODA" EN ONDA -->
+<section class="relative w-full overflow-hidden" id="contador-onda">
+  <svg
+    viewBox="0 0 1080 361"
+    preserveAspectRatio="none"
+    xmlns="http://www.w3.org/2000/svg"
+    style="width:100%; display:block; height: clamp(140px, 35vw, 280px);"
+  >
+    <path
+      d="
+      M 0,33 10,31 20,30 30,27 40,24 50,22 60,19 70,15 80,13 90,10 100,9 110,8 120,8 130,9 140,10 150,12 160,14 170,17 180,20 190,23 200,26 210,28 220,30 230,32 240,33 250,34 260,34 270,34 280,32 290,31 300,28 310,26 320,23 330,19 340,16 350,13 360,11 370,9 380,8 390,8 400,7 410,8 420,8 430,10 440,11 450,13 460,16 470,19 480,23 490,26 500,28 510,30 520,32 530,33 540,34 550,34 560,34 570,33 580,31 590,30 600,27 610,24 620,21 630,18 640,15 650,13 660,11 670,10 680,10 690,9 700,10 710,10 720,11 730,13 740,15 750,17 760,21 770,23 780,26 790,28 800,30 810,30 820,31 830,31 840,31 850,30 860,28 870,27 880,24 890,22 900,19 910,17 920,14 930,11 940,10 950,8 960,8 970,7 980,7 990,8 1000,8 1010,10 1020,11 1030,13 1040,15 1050,18 1060,21 1070,24 1079,28
+      L 1079,349 1070,346 1060,342 1050,339 1040,337 1030,334 1020,332 1010,331 1000,330 990,329 980,329 970,329 960,329 950,330 940,331 930,333 920,335 910,338 900,341 890,344 880,346 870,349 860,350 850,352 840,352 830,353 820,352 810,352 800,351 790,349 780,346 770,344 760,341 750,337 740,335 730,332 720,331 710,330 700,329 690,329 680,329 670,330 660,331 650,332 640,335 630,337 620,341 610,343 600,346 590,348 580,350 570,352 560,352 550,353 540,353 530,352 520,351 510,350 500,348 490,345 480,342 470,339 460,337 450,334 440,332 430,331 420,330 410,330 400,330 390,331 380,331 370,333 360,335 350,337 340,341 330,343 320,346 310,348 300,350 290,352 280,352 270,353 260,353 250,352 240,351 230,350 220,348 210,346 200,343 190,341 180,337 170,335 160,333 150,331 140,330 130,329 120,329 110,328 100,329 90,330 80,330 70,331 60,333 50,335 40,337 30,340 20,343 10,346 0,349
+      Z
+    "
+      fill="#ebccc4"></path>
+
+    <foreignObject x="80" y="50" width="920" height="260">
+      <div
+        xmlns="http://www.w3.org/1999/xhtml"
+        style="display:flex; align-items:center; justify-content:center; height:100%; text-align:center;"
+      >
+        <p
+          class="font-callingstone text-[#63778d] uppercase font-bold text-[30px] sm:text-2xl md:text-3xl tracking-[0.19em]"
+        >
+          Falta para nuestra boda
+        </p>
+      </div>
+    </foreignObject>
+  </svg>
+</section>
+
+<!-- CONTADOR ELEGANTE -->
+<section class="relative py-2 px-4 overflow-visible" id="seccion-contador">
+  <div class="max-w-xl mx-auto text-center" id="card-contador">
+    <!-- Línea decorativa superior -->
+    <div class="flex items-center justify-center gap-3 mb-5">
+      <div
+        style="height:1px; width:60px; background: linear-gradient(to right, transparent, #ebccc4);"
+      >
+      </div>
+      <span class="font-allura text-[#ebccc4]" style="font-size:1.4rem;">♡</span
+      >
+      <div
+        style="height:1px; width:60px; background: linear-gradient(to left, transparent, #ebccc4);"
+      >
+      </div>
+    </div>
+
+    <div class="flex items-end justify-center gap-2 sm:gap-5 md:gap-8">
+      <!-- DÍAS -->
+      <div class="flex flex-col items-center">
+        <span
+          class="font-callingstone text-3xl text-[#63778d]"
+          style="line-height:1;"
+          id="dias">00</span
+        >
+        <div
+          style="height:1px; width:100%; background-color:#ebccc4; margin: 4px 0;"
+        >
+        </div>
+        <span
+          class="font-callingstone text-[#b8a090] uppercase tracking-widest"
+          style="font-size: clamp(0.55rem, 1.5vw, 0.75rem);">Días</span
+        >
+      </div>
+
+      <span
+        class="font-cathylise text-[#ebccc4]"
+        style="font-size: clamp(2rem, 8vw, 3.5rem); padding-bottom: 1.4rem;"
+        >:</span
+      >
+
+      <!-- HORAS -->
+      <div class="flex flex-col items-center">
+        <span
+          class="font-callingstone text-3xl text-[#63778d]"
+          style=" line-height:1;"
+          id="horas">00</span
+        >
+        <div
+          style="height:1px; width:100%; background-color:#ebccc4; margin: 4px 0;"
+        >
+        </div>
+        <span
+          class="font-callingstone text-[#b8a090] uppercase tracking-widest"
+          style="font-size: clamp(0.55rem, 1.5vw, 0.75rem);">Horas</span
+        >
+      </div>
+
+      <span
+        class="font-cathylise text-[#ebccc4]"
+        style="font-size: clamp(2rem, 8vw, 3.5rem); padding-bottom: 1.4rem;"
+        >:</span
+      >
+
+      <!-- MINUTOS -->
+      <div class="flex flex-col items-center">
+        <span
+          class="font-callingstone text-3xl text-[#63778d]"
+          style="f line-height:1;"
+          id="minutos">00</span
+        >
+        <div
+          style="height:1px; width:100%; background-color:#ebccc4; margin: 4px 0;"
+        >
+        </div>
+        <span
+          class="font-callingstone text-[#b8a090] uppercase tracking-widest"
+          style="font-size: clamp(0.55rem, 1.5vw, 0.75rem);">Minutos</span
+        >
+      </div>
+
+      <span
+        class="font-cathylise text-[#ebccc4]"
+        style="font-size: clamp(2rem, 8vw, 3.5rem); padding-bottom: 1.4rem;"
+        >:</span
+      >
+
+      <!-- SEGUNDOS -->
+      <div class="flex flex-col items-center">
+        <span
+          class="font-callingstone text-3xl text-[#63778d]"
+          style=" line-height:1;"
+          id="segundos">00</span
+        >
+        <div
+          style="height:1px; width:100%; background-color:#ebccc4; margin: 4px 0;"
+        >
+        </div>
+        <span
+          class="font-callingstone text-[#b8a090] uppercase tracking-widest"
+          style="font-size: clamp(0.55rem, 1.5vw, 0.75rem);">Segundos</span
+        >
+      </div>
+    </div>
+
+    <!-- Línea decorativa inferior -->
+    <!-- <div class="flex items-center justify-center gap-3 mt-5">
+      <div
+        style="height:1px; width:60px; background: linear-gradient(to right, transparent, #ebccc4);"
+      >
+      </div>
+      <span class="font-allura text-[#ebccc4]" style="font-size:1.4rem;">♡</span
+      >
+      <div
+        style="height:1px; width:60px; background: linear-gradient(to left, transparent, #ebccc4);"
+      >
+      </div>
+    </div> -->
+  </div>
+
+  <!-- FLOR ABAJO IZQUIERDA — espejada -->
+  <img
+    src="/imagenes/florabajo.png"
+    alt=""
+    id="flores-contador"
+    class="absolute bottom-[-72px] left-0 w-56 sm:w-44 object-contain pointer-events-none z-20 scale-x-[-1]"
+  />
+</section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  if (typeof window !== "undefined") {
+    document.addEventListener("DOMContentLoaded", () => {
+      const fechaEvento = new Date("2026-04-18T14:00:00").getTime();
+
+      function actualizarContador() {
+        const ahora = new Date().getTime();
+        const diferencia = fechaEvento - ahora;
+        if (diferencia > 0) {
+          const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+          const horas = Math.floor(
+            (diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+          );
+          const minutos = Math.floor(
+            (diferencia % (1000 * 60 * 60)) / (1000 * 60),
+          );
+          const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+          document.getElementById("dias")!.textContent = String(dias).padStart(
+            2,
+            "0",
+          );
+          document.getElementById("horas")!.textContent = String(
+            horas,
+          ).padStart(2, "0");
+          document.getElementById("minutos")!.textContent = String(
+            minutos,
+          ).padStart(2, "0");
+          document.getElementById("segundos")!.textContent = String(
+            segundos,
+          ).padStart(2, "0");
+        }
+      }
+
+      actualizarContador();
+      setInterval(actualizarContador, 1000);
+
+      gsap.set("#contador-onda", { opacity: 0, y: -20 });
+      gsap.set("#card-contador", { opacity: 0, y: 30 });
+      gsap.set("#flores-contador", { opacity: 0, x: -30 });
+
+      ScrollTrigger.create({
+        trigger: "#seccion-contador",
+        start: "top 85%",
+        onEnter: () => {
+          gsap.to("#contador-onda", {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power2.out",
+          });
+          gsap.to("#card-contador", {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            ease: "power2.out",
+            delay: 0.3,
+          });
+          gsap.to("#flores-contador", {
+            opacity: 1,
+            x: 0,
+            duration: 0.8,
+            ease: "power2.out",
+            delay: 0.4,
+          });
+        },
+        onLeaveBack: () => {
+          gsap.set("#contador-onda", { opacity: 0, y: -20 });
+          gsap.set("#card-contador", { opacity: 0, y: 30 });
+          gsap.set("#flores-contador", { opacity: 0, x: -30 });
+        },
+      });
+    });
+  }
+</script>

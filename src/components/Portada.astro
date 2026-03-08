@@ -1,0 +1,240 @@
+---
+// src/components/Portada.astro
+const { invitado = "Roberto Gombes Ferrutino y Sra." } = Astro.props;
+---
+
+<section
+    class="fixed inset-0 w-full h-screen flex justify-center items-center z-[10000]"
+    id="portada-section"
+    style="background-image: url('/imagenes/texturafinal.png'); background-size: cover; background-position: center; background-repeat: no-repeat; background-color: #f8f4f0;"
+>
+    <div
+        class="relative w-full max-w-[420px] h-full flex flex-col items-center justify-start"
+    >
+        <!-- FLORES ARRIBA -->
+        <div
+            class="w-full flex justify-start z-[8] flex-shrink-0"
+            id="flores-top"
+        >
+            <img
+                src="/imagenes/floresazules.png"
+                alt=""
+                class="w-full max-w-[300px] object-contain -mt-2"
+            />
+        </div>
+
+        <!-- CONTENIDO CENTRAL -->
+        <div
+            class="flex flex-col items-center justify-start flex-1 w-full px-8 gap-5 z-10 pt-6"
+        >
+            <!-- INICIALES M&A — M y A en azul, & en rosado -->
+            <div id="iniciales" class="text-center leading-none">
+                <span
+                    class="font-cathylise"
+                    style="font-size: clamp(2.5rem, 11vw, 3.5rem); line-height: 1;"
+                >
+                    <span style="color: #63778d;">M</span><span
+                        style="color: #ebccc4;">&amp;</span
+                    ><span style="color: #63778d;">A</span>
+                </span>
+            </div>
+
+            <!-- NOS CASAMOS -->
+            <div id="nos-casamos" class="text-center">
+                <p
+                    class="font-callingstone text-[#63778d] tracking-[0.25em] uppercase text-xs"
+                >
+                    ¡Nos Casamos!
+                </p>
+            </div>
+
+            <!-- CAJA INVITADO -->
+            <div
+                id="nombre-invitado"
+                class="w-full border border-[#ebccc4] px-5 py-3 text-center max-w-xs"
+            >
+                <p
+                    class="font-callingstone text-[10px] tracking-[0.3em] uppercase text-[#63778d] mb-1"
+                >
+                    Para
+                </p>
+                <p
+                    class="font-callingstone text-[#63778d] tracking-wider text-sm"
+                >
+                    {invitado}
+                </p>
+            </div>
+
+            <!-- SOBRE -->
+            <div
+                id="sobre-container"
+                class="flex justify-center cursor-pointer mt-2"
+            >
+                <img
+                    src="/imagenes/sobre.png"
+                    alt="Sobre de invitación"
+                    class="drop-shadow-lg w-52 sm:w-60"
+                />
+            </div>
+
+            <!-- INSTRUCCIÓN -->
+            <p
+                id="instruccion"
+                class="font-callingstone text-center text-[#63778d] tracking-[0.2em] uppercase text-[10px]"
+            >
+                Toca el sobre para abrir la invitación
+            </p>
+        </div>
+    </div>
+</section>
+
+<style>
+    body.portada-activa {
+        overflow: hidden !important;
+        height: 100vh !important;
+    }
+</style>
+
+<script>
+    import { gsap } from "gsap";
+
+    if (typeof window !== "undefined") {
+        document.addEventListener("DOMContentLoaded", () => {
+            document.body.classList.add("portada-activa");
+
+            gsap.set("#flores-top", { opacity: 0, y: -40 });
+            gsap.set("#iniciales", { opacity: 0, scale: 0.85 });
+            gsap.set("#nos-casamos", { opacity: 0, y: 15 });
+            gsap.set("#nombre-invitado", { opacity: 0, y: 20 });
+            gsap.set("#sobre-container", { opacity: 0, y: 25, scale: 0.92 });
+            gsap.set("#instruccion", { opacity: 0 });
+
+            const tl = gsap.timeline({ delay: 0.3 });
+
+            tl.to(
+                "#flores-top",
+                { opacity: 1, y: 0, duration: 1.1, ease: "power2.out" },
+                0,
+            )
+                .to(
+                    "#iniciales",
+                    {
+                        opacity: 1,
+                        scale: 1,
+                        duration: 1.2,
+                        ease: "back.out(1.4)",
+                    },
+                    0.3,
+                )
+                .to(
+                    "#nos-casamos",
+                    { opacity: 1, y: 0, duration: 0.9, ease: "power2.out" },
+                    0.6,
+                )
+                .to(
+                    "#nombre-invitado",
+                    { opacity: 1, y: 0, duration: 0.9, ease: "power2.out" },
+                    0.85,
+                )
+                .to(
+                    "#sobre-container",
+                    {
+                        opacity: 1,
+                        y: 0,
+                        scale: 1,
+                        duration: 0.9,
+                        ease: "power2.out",
+                    },
+                    1.0,
+                )
+                .to(
+                    "#instruccion",
+                    { opacity: 1, duration: 0.7, ease: "power2.out" },
+                    1.25,
+                );
+
+            const sobreContainer = document.getElementById("sobre-container");
+            sobreContainer?.addEventListener("mouseenter", () => {
+                gsap.to("#sobre-container", {
+                    y: -8,
+                    scale: 1.04,
+                    duration: 0.3,
+                    ease: "power2.out",
+                });
+            });
+            sobreContainer?.addEventListener("mouseleave", () => {
+                gsap.to("#sobre-container", {
+                    y: 0,
+                    scale: 1,
+                    duration: 0.3,
+                    ease: "power2.out",
+                });
+            });
+
+            const portadaSection = document.getElementById("portada-section");
+            sobreContainer?.addEventListener("click", () => {
+                const tlSalida = gsap.timeline();
+                tlSalida
+                    .to("#sobre-container", {
+                        scale: 1.08,
+                        duration: 0.2,
+                        ease: "power2.in",
+                    })
+                    .to(
+                        [
+                            "#instruccion",
+                            "#nombre-invitado",
+                            "#nos-casamos",
+                            "#iniciales",
+                        ],
+                        {
+                            opacity: 0,
+                            y: -15,
+                            duration: 0.35,
+                            stagger: 0.04,
+                            ease: "power2.in",
+                        },
+                        0.1,
+                    )
+                    .to(
+                        ["#flores-top"],
+                        {
+                            opacity: 0,
+                            scale: 0.9,
+                            duration: 0.35,
+                            ease: "power2.in",
+                        },
+                        0.1,
+                    )
+                    .to(
+                        "#sobre-container",
+                        {
+                            opacity: 0,
+                            scale: 1.25,
+                            duration: 0.4,
+                            ease: "power2.in",
+                        },
+                        0.3,
+                    )
+                    .to(
+                        portadaSection,
+                        {
+                            opacity: 0,
+                            duration: 0.5,
+                            ease: "power2.in",
+                            onStart: () => {
+                                document.body.classList.remove(
+                                    "portada-activa",
+                                );
+                            },
+                            onComplete: () => {
+                                portadaSection?.remove();
+                                window.scrollTo({ top: 0, behavior: "smooth" });
+                            },
+                        },
+                        0.5,
+                    );
+            });
+        });
+    }
+</script>

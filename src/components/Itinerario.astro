@@ -1,0 +1,475 @@
+---
+// Itinerario.astro
+---
+
+<!-- ONDA CON TEXTO "ITINERARIO" -->
+<section class="relative w-full overflow-hidden" id="itinerario-onda">
+  <svg
+    viewBox="0 0 1080 361"
+    preserveAspectRatio="none"
+    xmlns="http://www.w3.org/2000/svg"
+    style="width:100%; display:block; height: clamp(140px, 35vw, 280px);"
+  >
+    <path
+      d="
+      M 0,33 10,31 20,30 30,27 40,24 50,22 60,19 70,15 80,13 90,10 100,9 110,8 120,8 130,9 140,10 150,12 160,14 170,17 180,20 190,23 200,26 210,28 220,30 230,32 240,33 250,34 260,34 270,34 280,32 290,31 300,28 310,26 320,23 330,19 340,16 350,13 360,11 370,9 380,8 390,8 400,7 410,8 420,8 430,10 440,11 450,13 460,16 470,19 480,23 490,26 500,28 510,30 520,32 530,33 540,34 550,34 560,34 570,33 580,31 590,30 600,27 610,24 620,21 630,18 640,15 650,13 660,11 670,10 680,10 690,9 700,10 710,10 720,11 730,13 740,15 750,17 760,21 770,23 780,26 790,28 800,30 810,30 820,31 830,31 840,31 850,30 860,28 870,27 880,24 890,22 900,19 910,17 920,14 930,11 940,10 950,8 960,8 970,7 980,7 990,8 1000,8 1010,10 1020,11 1030,13 1040,15 1050,18 1060,21 1070,24 1079,28
+      L 1079,349 1070,346 1060,342 1050,339 1040,337 1030,334 1020,332 1010,331 1000,330 990,329 980,329 970,329 960,329 950,330 940,331 930,333 920,335 910,338 900,341 890,344 880,346 870,349 860,350 850,352 840,352 830,353 820,352 810,352 800,351 790,349 780,346 770,344 760,341 750,337 740,335 730,332 720,331 710,330 700,329 690,329 680,329 670,330 660,331 650,332 640,335 630,337 620,341 610,343 600,346 590,348 580,350 570,352 560,352 550,353 540,353 530,352 520,351 510,350 500,348 490,345 480,342 470,339 460,337 450,334 440,332 430,331 420,330 410,330 400,330 390,331 380,331 370,333 360,335 350,337 340,341 330,343 320,346 310,348 300,350 290,352 280,352 270,353 260,353 250,352 240,351 230,350 220,348 210,346 200,343 190,341 180,337 170,335 160,333 150,331 140,330 130,329 120,329 110,328 100,329 90,330 80,330 70,331 60,333 50,335 40,337 30,340 20,343 10,346 0,349
+      Z
+    "
+      fill="#ebccc4"></path>
+    <foreignObject x="80" y="50" width="920" height="260">
+      <div
+        xmlns="http://www.w3.org/1999/xhtml"
+        style="display:flex; align-items:center; justify-content:center; height:100%; text-align:center;"
+      >
+        <p
+          class="font-callingstone text-[#63778d] uppercase font-bold text-[30px] sm:text-2xl md:text-3xl tracking-[0.19em]"
+        >
+          Itinerario
+        </p>
+      </div>
+    </foreignObject>
+  </svg>
+</section>
+
+<!-- CONTENIDO ITINERARIO -->
+<section class="px-4 relative overflow-hidden py-4" id="seccion-itinerario">
+  <div class="max-w-sm mx-auto relative">
+    <!-- Línea central vertical -->
+    <div
+      class="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[2px] bg-[#63778d] linea-central opacity-0"
+    >
+    </div>
+
+    <div id="eventos-container">
+      <!-- IGLESIA — derecha -->
+      <div
+        class="evento-item opacity-0 flex items-center"
+        style="min-height:60px;"
+      >
+        <div class="flex-1"></div>
+        <div class="relative flex-shrink-0 flex items-center" style="width:0;">
+          <div
+            class="w-3 h-3 rounded-full border-2 border-[#63778d] bg-white punto-item absolute -translate-x-1/2 z-10"
+          >
+          </div>
+          <div
+            class="absolute left-[6px] h-[2px] bg-[#63778d]"
+            style="width:24px;"
+          >
+          </div>
+        </div>
+        <div
+          class="flex-1 flex flex-col items-center texto-der"
+          style="padding-left:36px;"
+        >
+          <img
+            src="/iconos/iglesia.png"
+            alt="Iglesia"
+            class="w-9 h-9 object-contain icono-filter mb-0.5"
+          />
+          <p
+            class="font-callingstone text-[#63778d] font-bold uppercase tracking-widest text-xs"
+          >
+            IGLESIA
+          </p>
+          <p
+            class="font-callingstone text-[#ebccc4] tracking-widest"
+            style="font-size:0.65rem;"
+          >
+            14:00 P.M.
+          </p>
+        </div>
+      </div>
+
+      <div class="h-4"></div>
+
+      <!-- FOTOS — izquierda -->
+      <div
+        class="evento-item opacity-0 flex items-center"
+        style="min-height:60px;"
+      >
+        <div
+          class="flex-1 flex flex-col items-center texto-izq"
+          style="padding-right:36px;"
+        >
+          <img
+            src="/iconos/foto.png"
+            alt="Fotos"
+            class="w-9 h-9 object-contain icono-filter mb-0.5"
+          />
+          <p
+            class="font-callingstone text-[#63778d] font-bold uppercase tracking-widest text-xs"
+          >
+            FOTOS
+          </p>
+          <p
+            class="font-callingstone text-[#ebccc4] tracking-widest"
+            style="font-size:0.65rem;"
+          >
+            15:00 P.M.
+          </p>
+        </div>
+        <div class="relative flex-shrink-0 flex items-center" style="width:0;">
+          <div
+            class="w-3 h-3 rounded-full border-2 border-[#63778d] bg-white punto-item absolute -translate-x-1/2 z-10"
+          >
+          </div>
+          <div
+            class="absolute h-[2px] bg-[#63778d]"
+            style="width:24px; right:6px;"
+          >
+          </div>
+        </div>
+        <div class="flex-1"></div>
+      </div>
+
+      <div class="h-4"></div>
+
+      <!-- SALÓN — derecha -->
+      <div
+        class="evento-item opacity-0 flex items-center"
+        style="min-height:60px;"
+      >
+        <div class="flex-1"></div>
+        <div class="relative flex-shrink-0 flex items-center" style="width:0;">
+          <div
+            class="w-3 h-3 rounded-full border-2 border-[#63778d] bg-white punto-item absolute -translate-x-1/2 z-10"
+          >
+          </div>
+          <div
+            class="absolute left-[6px] h-[2px] bg-[#63778d]"
+            style="width:24px;"
+          >
+          </div>
+        </div>
+        <div
+          class="flex-1 flex flex-col items-center texto-der"
+          style="padding-left:36px;"
+        >
+          <img
+            src="/iconos/recepcion.png"
+            alt="Salón"
+            class="w-9 h-9 object-contain icono-filter mb-0.5"
+          />
+          <p
+            class="font-callingstone text-[#63778d] font-bold uppercase tracking-widest text-xs"
+          >
+            SALÓN
+          </p>
+          <p
+            class="font-callingstone text-[#ebccc4] tracking-widest"
+            style="font-size:0.65rem;"
+          >
+            16:00 P.M.
+          </p>
+        </div>
+      </div>
+
+      <div class="h-4"></div>
+
+      <!-- BRINDIS — izquierda -->
+      <div
+        class="evento-item opacity-0 flex items-center"
+        style="min-height:60px;"
+      >
+        <div
+          class="flex-1 flex flex-col items-center texto-izq"
+          style="padding-right:36px;"
+        >
+          <img
+            src="/iconos/brindis.png"
+            alt="Brindis"
+            class="w-9 h-9 object-contain icono-filter mb-0.5"
+          />
+          <p
+            class="font-callingstone text-[#63778d] font-bold uppercase tracking-widest text-xs"
+          >
+            BRINDIS
+          </p>
+          <p
+            class="font-callingstone text-[#ebccc4] tracking-widest"
+            style="font-size:0.65rem;"
+          >
+            16:30 P.M.
+          </p>
+        </div>
+        <div class="relative flex-shrink-0 flex items-center" style="width:0;">
+          <div
+            class="w-3 h-3 rounded-full border-2 border-[#63778d] bg-white punto-item absolute -translate-x-1/2 z-10"
+          >
+          </div>
+          <div
+            class="absolute h-[2px] bg-[#63778d]"
+            style="width:24px; right:6px;"
+          >
+          </div>
+        </div>
+        <div class="flex-1"></div>
+      </div>
+
+      <div class="h-4"></div>
+
+      <!-- PARTY — derecha -->
+      <div
+        class="evento-item opacity-0 flex items-center"
+        style="min-height:60px;"
+      >
+        <div class="flex-1"></div>
+        <div class="relative flex-shrink-0 flex items-center" style="width:0;">
+          <div
+            class="w-3 h-3 rounded-full border-2 border-[#63778d] bg-white punto-item absolute -translate-x-1/2 z-10"
+          >
+          </div>
+          <div
+            class="absolute left-[6px] h-[2px] bg-[#63778d]"
+            style="width:24px;"
+          >
+          </div>
+        </div>
+        <div
+          class="flex-1 flex flex-col items-center texto-der"
+          style="padding-left:36px;"
+        >
+          <img
+            src="/iconos/musica.png"
+            alt="Party"
+            class="w-9 h-9 object-contain icono-filter mb-0.5"
+          />
+          <p
+            class="font-callingstone text-[#63778d] font-bold uppercase tracking-widest text-xs"
+          >
+            PARTY
+          </p>
+          <p
+            class="font-callingstone text-[#ebccc4] tracking-widest"
+            style="font-size:0.65rem;"
+          >
+            17:30 P.M.
+          </p>
+        </div>
+      </div>
+
+      <div class="h-4"></div>
+
+      <!-- CENA — izquierda -->
+      <div
+        class="evento-item opacity-0 flex items-center"
+        style="min-height:60px;"
+      >
+        <div
+          class="flex-1 flex flex-col items-center texto-izq"
+          style="padding-right:36px;"
+        >
+          <img
+            src="/iconos/cena.png"
+            alt="Cena"
+            class="w-9 h-9 object-contain icono-filter mb-0.5"
+          />
+          <p
+            class="font-callingstone text-[#63778d] font-bold uppercase tracking-widest text-xs"
+          >
+            CENA
+          </p>
+          <p
+            class="font-callingstone text-[#ebccc4] tracking-widest"
+            style="font-size:0.65rem;"
+          >
+            19:00 P.M.
+          </p>
+        </div>
+        <div class="relative flex-shrink-0 flex items-center" style="width:0;">
+          <div
+            class="w-3 h-3 rounded-full border-2 border-[#63778d] bg-white punto-item absolute -translate-x-1/2 z-10"
+          >
+          </div>
+          <div
+            class="absolute h-[2px] bg-[#63778d]"
+            style="width:24px; right:6px;"
+          >
+          </div>
+        </div>
+        <div class="flex-1"></div>
+      </div>
+
+      <div class="h-4"></div>
+
+      <!-- TORTA — derecha -->
+      <div
+        class="evento-item opacity-0 flex items-center"
+        style="min-height:60px;"
+      >
+        <div class="flex-1"></div>
+        <div class="relative flex-shrink-0 flex items-center" style="width:0;">
+          <div
+            class="w-3 h-3 rounded-full border-2 border-[#63778d] bg-white punto-item absolute -translate-x-1/2 z-10"
+          >
+          </div>
+          <div
+            class="absolute left-[6px] h-[2px] bg-[#63778d]"
+            style="width:24px;"
+          >
+          </div>
+        </div>
+        <div
+          class="flex-1 flex flex-col items-center texto-der"
+          style="padding-left:36px;"
+        >
+          <img
+            src="/iconos/torta.png"
+            alt="Torta"
+            class="w-9 h-9 object-contain icono-filter mb-0.5"
+          />
+          <p
+            class="font-callingstone text-[#63778d] font-bold uppercase tracking-widest text-xs"
+          >
+            TORTA
+          </p>
+          <p
+            class="font-callingstone text-[#ebccc4] tracking-widest"
+            style="font-size:0.65rem;"
+          >
+            21:30 P.M.
+          </p>
+        </div>
+      </div>
+
+      <div class="h-4"></div>
+
+      <!-- DESPEDIDA — izquierda -->
+      <div
+        class="evento-item opacity-0 flex items-center"
+        style="min-height:60px;"
+      >
+        <div
+          class="flex-1 flex flex-col items-center texto-izq"
+          style="padding-right:36px;"
+        >
+          <img
+            src="/iconos/despedida.png"
+            alt="Despedida"
+            class="w-9 h-9 object-contain icono-filter mb-0.5"
+          />
+          <p
+            class="font-callingstone text-[#63778d] font-bold uppercase tracking-widest text-xs text-center leading-tight"
+          >
+            DESPEDIDA<br />NOVIOS
+          </p>
+          <p
+            class="font-callingstone text-[#ebccc4] tracking-widest"
+            style="font-size:0.65rem;"
+          >
+            23:30 P.M.
+          </p>
+        </div>
+        <div class="relative flex-shrink-0 flex items-center" style="width:0;">
+          <div
+            class="w-3 h-3 rounded-full border-2 border-[#63778d] bg-white punto-item absolute -translate-x-1/2 z-10"
+          >
+          </div>
+          <div
+            class="absolute h-[2px] bg-[#63778d]"
+            style="width:24px; right:6px;"
+          >
+          </div>
+        </div>
+        <div class="flex-1"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .icono-filter {
+    filter: brightness(0) saturate(100%) invert(46%) sepia(40%) saturate(400%)
+      hue-rotate(170deg) brightness(90%) contrast(90%);
+  }
+  .punto-item {
+    box-shadow: 0 0 0 2px rgba(99, 119, 141, 0.15);
+  }
+</style>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+
+  const initItinerario = () => {
+    gsap.set("#itinerario-onda", { opacity: 0, y: -20 });
+    gsap.set(".linea-central", {
+      opacity: 0,
+      scaleY: 0,
+      transformOrigin: "top center",
+    });
+    gsap.set(".punto-item", { opacity: 0, scale: 0 });
+    gsap.set(".evento-item", { opacity: 0 });
+    gsap.set(".texto-izq", { x: -40 });
+    gsap.set(".texto-der", { x: 40 });
+
+    ScrollTrigger.create({
+      trigger: "#itinerario-onda",
+      start: "top 85%",
+      onEnter: () => {
+        gsap.to("#itinerario-onda", {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power2.out",
+        });
+      },
+      onLeaveBack: () => {
+        gsap.set("#itinerario-onda", { opacity: 0, y: -20 });
+      },
+    });
+
+    ScrollTrigger.create({
+      trigger: "#eventos-container",
+      start: "top 85%",
+      onEnter: () => {
+        const tl = gsap.timeline();
+        tl.to(".linea-central", {
+          opacity: 1,
+          scaleY: 1,
+          duration: 1.5,
+          ease: "power2.out",
+        })
+          .to(
+            ".punto-item",
+            {
+              opacity: 1,
+              scale: 1,
+              duration: 0.4,
+              stagger: 0.12,
+              ease: "back.out(1.7)",
+            },
+            "-=1.2",
+          )
+          .to(
+            ".evento-item",
+            { opacity: 1, duration: 0.5, stagger: 0.12, ease: "power2.out" },
+            "-=1.5",
+          )
+          .to(
+            ".texto-izq",
+            { x: 0, duration: 0.5, stagger: 0.12, ease: "power2.out" },
+            "-=1.8",
+          )
+          .to(
+            ".texto-der",
+            { x: 0, duration: 0.5, stagger: 0.12, ease: "power2.out" },
+            "-=1.8",
+          );
+      },
+      onLeaveBack: () => {
+        gsap.set(".linea-central", { opacity: 0, scaleY: 0 });
+        gsap.set(".punto-item", { opacity: 0, scale: 0 });
+        gsap.set(".evento-item", { opacity: 0 });
+        gsap.set(".texto-izq", { x: -40 });
+        gsap.set(".texto-der", { x: 40 });
+      },
+    });
+  };
+
+  document.addEventListener("DOMContentLoaded", initItinerario);
+  document.addEventListener("astro:page-load", initItinerario);
+</script>

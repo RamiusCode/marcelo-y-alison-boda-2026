@@ -1,0 +1,182 @@
+---
+// CodigoVestimenta.astro
+---
+
+<!-- ONDA CON TEXTO "CÓDIGO DE VESTIMENTA" -->
+<section class="relative w-full pt-16 overflow-hidden" id="vestimenta-onda">
+  <svg
+    viewBox="0 0 1080 361"
+    preserveAspectRatio="none"
+    xmlns="http://www.w3.org/2000/svg"
+    style="width:100%; display:block; height: clamp(140px, 35vw, 280px);"
+  >
+    <path
+      d="
+      M 0,33 10,31 20,30 30,27 40,24 50,22 60,19 70,15 80,13 90,10 100,9 110,8 120,8 130,9 140,10 150,12 160,14 170,17 180,20 190,23 200,26 210,28 220,30 230,32 240,33 250,34 260,34 270,34 280,32 290,31 300,28 310,26 320,23 330,19 340,16 350,13 360,11 370,9 380,8 390,8 400,7 410,8 420,8 430,10 440,11 450,13 460,16 470,19 480,23 490,26 500,28 510,30 520,32 530,33 540,34 550,34 560,34 570,33 580,31 590,30 600,27 610,24 620,21 630,18 640,15 650,13 660,11 670,10 680,10 690,9 700,10 710,10 720,11 730,13 740,15 750,17 760,21 770,23 780,26 790,28 800,30 810,30 820,31 830,31 840,31 850,30 860,28 870,27 880,24 890,22 900,19 910,17 920,14 930,11 940,10 950,8 960,8 970,7 980,7 990,8 1000,8 1010,10 1020,11 1030,13 1040,15 1050,18 1060,21 1070,24 1079,28
+      L 1079,349 1070,346 1060,342 1050,339 1040,337 1030,334 1020,332 1010,331 1000,330 990,329 980,329 970,329 960,329 950,330 940,331 930,333 920,335 910,338 900,341 890,344 880,346 870,349 860,350 850,352 840,352 830,353 820,352 810,352 800,351 790,349 780,346 770,344 760,341 750,337 740,335 730,332 720,331 710,330 700,329 690,329 680,329 670,330 660,331 650,332 640,335 630,337 620,341 610,343 600,346 590,348 580,350 570,352 560,352 550,353 540,353 530,352 520,351 510,350 500,348 490,345 480,342 470,339 460,337 450,334 440,332 430,331 420,330 410,330 400,330 390,331 380,331 370,333 360,335 350,337 340,341 330,343 320,346 310,348 300,350 290,352 280,352 270,353 260,353 250,352 240,351 230,350 220,348 210,346 200,343 190,341 180,337 170,335 160,333 150,331 140,330 130,329 120,329 110,328 100,329 90,330 80,330 70,331 60,333 50,335 40,337 30,340 20,343 10,346 0,349
+      Z
+    "
+      fill="#ebccc4"></path>
+    <foreignObject x="80" y="50" width="920" height="260">
+      <div
+        xmlns="http://www.w3.org/1999/xhtml"
+        style="display:flex; align-items:center; justify-content:center; height:100%; text-align:center;"
+      >
+        <p
+          class="font-callingstone text-[#63778d] uppercase font-bold text-[30px] sm:text-2xl md:text-3xl tracking-[0.19em]"
+        >
+          Código de Vestimenta
+        </p>
+      </div>
+    </foreignObject>
+  </svg>
+</section>
+
+<!-- CONTENIDO -->
+<section
+  class="pt-6 pb-12 px-4 relative overflow-hidden"
+  id="seccion-vestimenta"
+>
+  <div class="max-w-xl mx-auto text-center relative z-10">
+    <!-- HOJAS LATERALES -->
+    <div
+      class="absolute left-0 top-1/2 -translate-y-1/2 w-16 sm:w-20 pointer-events-none z-0 -ml-8 sm:-ml-12"
+      id="hoja-izq-vestimenta"
+    >
+      <img
+        src="/imagenes/azullateral.png"
+        alt=""
+        class="w-full h-auto object-contain opacity-80"
+      />
+    </div>
+    <div
+      class="absolute right-0 top-1/2 -translate-y-1/2 w-16 sm:w-20 pointer-events-none z-0 -mr-8 sm:-mr-12"
+      id="hoja-der-vestimenta"
+    >
+      <img
+        src="/imagenes/azullateral.png"
+        alt=""
+        class="w-full h-auto object-contain opacity-80 scale-x-[-1]"
+      />
+    </div>
+
+    <!-- SEPARADOR SUPERIOR -->
+    <!-- <div class="flex justify-center mb-6" id="separador-superior">
+      <img
+        src="/imagenes/Separadores.webp"
+        alt=""
+        class="w-32 md:w-40 h-auto object-contain opacity-90"
+      />
+    </div> -->
+
+    <!-- ICONO -->
+    <div class="flex justify-center mb-4" id="imagen-vestimenta">
+      <img
+        src="/imagenes/CodigoVestimenta.webp"
+        alt="Código de vestimenta"
+        class="w-16 md:w-24 h-auto object-contain icono-color"
+      />
+    </div>
+
+    <!-- FORMAL -->
+    <div class="mb-3" id="descripcion-vestimenta">
+      <p
+        class="font-callingstone text-[#63778d] uppercase tracking-widest font-bold font-base"
+      >
+        Formal
+      </p>
+    </div>
+
+    <!-- NOTA -->
+    <div id="nota-vestimenta">
+      <p
+        class="font-callingstone text-[#ebccc4] tracking-widest mx-6 leading-relaxed"
+        style="font-size: clamp(0.7rem, 2vw, 0.9rem);"
+      >
+        Vestido para damas, traje para caballeros
+      </p>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+
+  if (typeof window !== "undefined") {
+    document.addEventListener("DOMContentLoaded", () => {
+      gsap.set("#vestimenta-onda", { opacity: 0, y: -20 });
+      gsap.set("#separador-superior", { opacity: 0, y: -20 });
+      gsap.set("#imagen-vestimenta", { opacity: 0, scale: 0.8 });
+      gsap.set("#descripcion-vestimenta", { opacity: 0, y: 20 });
+      gsap.set("#nota-vestimenta", { opacity: 0, y: 20 });
+      gsap.set("#hoja-izq-vestimenta", { opacity: 0, x: -40 });
+      gsap.set("#hoja-der-vestimenta", { opacity: 0, x: 40 });
+
+      ScrollTrigger.create({
+        trigger: "#seccion-vestimenta",
+        start: "top 85%",
+        onEnter: () => {
+          const tl = gsap.timeline();
+          tl.to("#vestimenta-onda", {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power2.out",
+          })
+            .to(
+              "#separador-superior",
+              { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" },
+              "-=0.4",
+            )
+            .to(
+              "#imagen-vestimenta",
+              { opacity: 1, scale: 1, duration: 1, ease: "back.out(1.5)" },
+              "-=0.4",
+            )
+            .to(
+              "#descripcion-vestimenta",
+              { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" },
+              "-=0.6",
+            )
+            .to(
+              "#nota-vestimenta",
+              { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" },
+              "-=0.6",
+            )
+            .to(
+              "#hoja-izq-vestimenta, #hoja-der-vestimenta",
+              { opacity: 1, x: 0, duration: 1, ease: "power2.out" },
+              "-=0.8",
+            );
+
+          gsap.to("#imagen-vestimenta", {
+            scale: 1.05,
+            duration: 2.5,
+            ease: "sine.inOut",
+            yoyo: true,
+            repeat: -1,
+            delay: 1.5,
+          });
+        },
+        onLeaveBack: () => {
+          gsap.set("#vestimenta-onda", { opacity: 0, y: -20 });
+          gsap.set("#separador-superior", { opacity: 0, y: -20 });
+          gsap.set("#imagen-vestimenta", { opacity: 0, scale: 0.8 });
+          gsap.set("#descripcion-vestimenta", { opacity: 0, y: 20 });
+          gsap.set("#nota-vestimenta", { opacity: 0, y: 20 });
+          gsap.set("#hoja-izq-vestimenta", { opacity: 0, x: -40 });
+          gsap.set("#hoja-der-vestimenta", { opacity: 0, x: 40 });
+        },
+      });
+    });
+  }
+</script>
+
+<style>
+  .icono-color {
+    filter: brightness(0) saturate(100%) invert(46%) sepia(40%) saturate(400%)
+      hue-rotate(170deg) brightness(90%) contrast(90%);
+  }
+</style>

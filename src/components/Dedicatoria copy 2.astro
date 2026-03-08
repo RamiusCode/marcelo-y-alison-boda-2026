@@ -1,0 +1,62 @@
+<section class="relative w-full overflow-hidden" id="versiculo-section">
+  <svg
+    viewBox="0 0 1080 361"
+    preserveAspectRatio="none"
+    xmlns="http://www.w3.org/2000/svg"
+    style="width:100%; display:block; height: clamp(200px, 45vw, 400px);"
+  >
+    <path
+      d="
+      M 0,40 10,37 20,35 30,31 40,27 50,23 60,18 70,13 80,9 90,5 100,3 110,2 120,2 130,3 140,5 150,8 160,11 170,16 180,20 190,25 200,29 210,33 220,36 230,39 240,40 250,41 260,41 270,41 280,39 290,37 300,33 310,29 320,24 330,19 340,14 350,9 360,6 370,3 380,2 390,1 400,0 410,1 420,2 430,4 440,6 450,10 460,14 470,19 480,24 490,29 500,33 510,36 520,39 530,40 540,41 550,41 560,41 570,40 580,37 590,35 600,31 610,26 620,21 630,17 640,13 650,9 660,6 670,5 680,4 690,3 700,4 710,5 720,6 730,9 740,12 750,16 760,21 770,25 780,29 790,33 800,35 810,36 820,37 830,37 840,37 850,35 860,33 870,31 880,27 890,23 900,19 910,15 920,11 930,7 940,4 950,2 960,1 970,0 980,0 990,1 1000,2 1010,4 1020,6 1030,9 1040,13 1050,17 1060,22 1070,27 1079,32
+      L 1079,354 1070,349 1060,343 1050,339 1040,335 1030,331 1020,328 1010,326 1000,324 990,323 980,323 970,323 960,323 950,325 940,327 930,330 920,333 910,337 900,342 890,346 880,350 870,354 860,356 850,358 840,359 830,360 820,359 810,359 800,357 790,354 780,350 770,346 760,341 750,336 740,332 730,328 720,326 710,324 700,323 690,323 680,323 670,324 660,326 650,328 640,332 630,336 620,341 610,345 600,350 590,353 580,356 570,358 560,359 550,360 540,360 530,359 520,357 510,355 500,352 490,348 480,343 470,339 460,335 450,331 440,328 430,326 420,325 410,325 400,325 390,326 380,327 370,329 360,333 350,336 340,341 330,345 320,350 310,353 300,356 290,358 280,359 270,360 260,360 250,359 240,357 230,355 220,352 210,349 200,345 190,341 180,336 170,332 160,329 150,326 140,324 130,323 120,323 110,322 100,323 90,324 80,325 70,327 60,329 50,332 40,336 30,340 20,344 10,349 0,354
+      Z
+    "
+      fill="#f0b9ab"></path>
+
+    <foreignObject x="80" y="80" width="920" height="200">
+      <div
+        xmlns="http://www.w3.org/1999/xhtml"
+        id="versiculo-content"
+        style="display:flex; flex-direction:column; align-items:center; justify-content:center; height:100%; text-align:center;"
+      >
+        <p
+          class="font-callingstone text-[#63778d] uppercase tracking-[0.2em] leading-loose text-xs sm:text-base md:text-xl mb-2 sm:mb-4"
+        >
+          Así que no son ya más dos, sino una sola<br />
+          carne; por tanto, lo que Dios ha unido,<br />
+          no lo separe el hombre.
+        </p>
+        <p
+          class="font-cathylise text-[#63778d]"
+          style="font-size: clamp(1.2rem, 4vw, 2.2rem);"
+        >
+          Mateo 19:6
+        </p>
+      </div>
+    </foreignObject>
+  </svg>
+</section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  if (typeof window !== "undefined") {
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.set("#versiculo-content", { opacity: 0, y: 30 });
+
+    ScrollTrigger.create({
+      trigger: "#versiculo-section",
+      start: "top 80%",
+      onEnter: () => {
+        gsap.to("#versiculo-content", {
+          opacity: 1,
+          y: 0,
+          duration: 1.2,
+          ease: "power2.out",
+        });
+      },
+    });
+  }
+</script>

@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+
+
+
+
+
+
+
+
+/* ---- Fuentes locales descargadas ---- */
+@font-face {
+  font-family: 'Callingstone';
+  src: url('/fonts/Callingstone - Personal Use Only.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cathylise';
+  src: url('/fonts/Cathylise Janetson.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* ---- Clases para usarlas ---- */
+.font-callingstone {
+  font-family: 'Callingstone', cursive !important;
+}
+
+.font-cathylise {
+  font-family: 'Cathylise', cursive !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Para el nombre */
+.font-great-vibes {
+  font-family: 'Great Vibes', cursive !important;
+}
+
+/* Para mis XV años */
+.font-crimson {
+  font-family: 'Crimson Text', serif !important;
+}
+
+/* Para dedicatoria*/
+.font-cormorant {
+  font-family: 'Cormorant Garamond', serif !important;
+}
+
+/*Para texto con Charm */
+.font-charm {
+  font-family: 'Charm', cursive !important;
+}
+
+
+/* Para texto estilo Allura */
+.font-allura {
+  font-family: 'Allura', cursive !important;
+}

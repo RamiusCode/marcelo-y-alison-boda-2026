@@ -1,0 +1,149 @@
+---
+// src/components/Novios.astro
+---
+
+<section class="relative w-full flex justify-center overflow-hidden py-8">
+    <div class="relative w-full max-w-[480px] flex flex-col items-center">
+        <!-- TEXTO NOS CASAMOS -->
+        <div id="nos-casamos" class="text-center pt-8">
+            <p
+                class="font-callingstone text-[#ecccc4] tracking-[0.25em] uppercase text-base"
+            >
+                ¡Nos Casamos!
+            </p>
+        </div>
+
+        <!-- SILUETA -->
+        <div id="silueta" class="w-full flex pt-10 justify-center z-10">
+            <img
+                src="/imagenes/silueta.png"
+                alt="Silueta de los novios"
+                class="w-28 sm:w-64 object-contain"
+            />
+        </div>
+
+        <!-- BLOQUE FLORES + NOMBRES -->
+        <div class="relative w-full flex flex-col pt-20 items-center mt-2">
+            <!-- FILA DE FLORES (solo decorativas, no afectan el texto) -->
+            <div
+                class="relative w-full flex justify-between items-center pointer-events-none h-24"
+            >
+                <div id="flor-izq">
+                    <img
+                        src="/imagenes/azullateral.png"
+                        alt=""
+                        class="w-28 sm:w-36 object-contain"
+                    />
+                </div>
+                <div id="flor-der">
+                    <img
+                        src="/imagenes/azullateral.png"
+                        alt=""
+                        class="w-28 sm:w-36 object-contain scale-x-[-1]"
+                    />
+                </div>
+            </div>
+
+            <!-- NOMBRES: en flujo normal, debajo de flores visualmente pero con margin negativo para subirlos al centro de las flores -->
+            <div id="nombres" class="relative z-10 text-center w-full -mt-16">
+                <div
+                    class="font-cathylise text-[#63778d] leading-none"
+                    style="font-size: clamp(3rem, 13vw, 4.5rem);"
+                >
+                    Marcelo
+                </div>
+                <div class="flex items-center justify-center my-1">
+                    <span
+                        class="font-cathylise text-[#ecccc4]"
+                        style="font-size: clamp(1.8rem, 8vw, 2.8rem);"
+                        >&amp;</span
+                    >
+                </div>
+                <div
+                    class="font-cathylise text-[#63778d] leading-none"
+                    style="font-size: clamp(3rem, 13vw, 4.5rem);"
+                >
+                    Alison
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+    if (typeof window !== "undefined") {
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.set("#silueta", { opacity: 0, y: -40, scale: 0.95 });
+        gsap.set("#flor-izq", { opacity: 0, x: -60 });
+        gsap.set("#flor-der", { opacity: 0, x: 60 });
+        gsap.set("#nombres", { opacity: 0, scale: 0.9 });
+
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: "#silueta",
+                start: "top 80%",
+            },
+        });
+
+        tl.to(
+            "#silueta",
+            {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                duration: 1.4,
+                ease: "power3.out",
+            },
+            0,
+        )
+            .to(
+                "#flor-izq",
+                {
+                    opacity: 1,
+                    x: 0,
+                    duration: 1.2,
+                    ease: "power2.out",
+                },
+                0.5,
+            )
+            .to(
+                "#flor-der",
+                {
+                    opacity: 1,
+                    x: 0,
+                    duration: 1.2,
+                    ease: "power2.out",
+                },
+                0.5,
+            )
+            .to(
+                "#nombres",
+                {
+                    opacity: 1,
+                    scale: 1,
+                    duration: 1.1,
+                    ease: "back.out(1.3)",
+                },
+                0.9,
+            );
+
+        // En los gsap.set:
+        gsap.set("#nos-casamos", { opacity: 0, y: -20 });
+
+        // En el timeline, antes de silueta:
+        tl.to(
+            "#nos-casamos",
+            {
+                opacity: 1,
+                y: 0,
+                duration: 1.0,
+                ease: "power2.out",
+            },
+            0,
+        );
+    }
+</script>
