@@ -1,0 +1,145 @@
+---
+// FloresAbajo.astro
+---
+
+<section class="relative w-full overflow-hidden pb-0 pt-8 px-4">
+    <!-- TEXTO "TE ESPERAMOS" + RAMITAS -->
+    <div class="relative text-center mb-18" id="texto-esperamos-container">
+        <h2
+            id="texto-esperamos"
+            class="font-callingstone text-[#63778d] tracking-[0.25em] uppercase text-xl"
+        >
+            Te esperamos
+        </h2>
+    </div>
+
+    <!-- ONDA ROSADA + FLORES LATERALES + LOGO -->
+    <div class="relative w-full" id="onda-final-container">
+        <!-- FLORES LATERALES detrás de la onda (z-0) -->
+        <div
+            class="absolute bottom-0 left-0 z-0 pointer-events-none"
+            id="flor-lat-izq"
+        >
+            <img
+                src="/imagenes/late.png"
+                alt=""
+                class="w-28 sm:w-36 md:w-40 h-auto object-contain"
+            />
+        </div>
+        <div
+            class="absolute bottom-0 right-0 z-0 pointer-events-none"
+            id="flor-lat-der"
+        >
+            <img
+                src="/imagenes/late.png"
+                alt=""
+                class="w-28 sm:w-36 md:w-40 h-auto object-contain scale-x-[-1]"
+            />
+        </div>
+
+        <!-- LOGO centrado encima de la onda (z-20) -->
+        <div
+            class="absolute left-1/2 -translate-x-1/2 z-20 bottom-8"
+            id="logo-final"
+        >
+            <img
+                src="/imagenes/logo.png"
+                alt="Logo M&A"
+                class="w-24 sm:w-28 md:w-32 object-contain"
+            />
+        </div>
+
+        <!-- ONDA SVG ROSADA (z-10, tapa las flores) -->
+        <svg
+            viewBox="0 0 1080 280"
+            preserveAspectRatio="none"
+            xmlns="http://www.w3.org/2000/svg"
+            style="width:100%; display:block; height: clamp(180px, 30vw, 280px); position:relative; z-index:10;"
+            id="onda-svg"
+        >
+            <path
+                d="
+        M 0,80 10,77 20,74 30,70 40,65 50,60 60,54 70,48 80,43 90,38 100,34 110,31 120,29 130,28 140,29 150,31 160,34 170,38 180,43 190,49 200,55 210,61 220,66 230,71 240,75 250,78 260,80 270,81 280,80 290,78 300,74 310,70 320,64 330,58 340,52 350,46 360,41 370,37 380,34 390,32 400,31 410,32 420,34 430,37 440,41 450,46 460,52 470,58 480,64 490,70 500,74 510,78 520,80 530,81 540,81 550,80 560,78 570,74 580,70 590,64 600,58 610,52 620,46 630,41 640,37 650,34 660,32 670,31 680,32 690,34 700,37 710,41 720,46 730,52 740,58 750,64 760,70 770,74 780,78 790,80 800,81 810,80 820,78 830,75 840,71 850,66 860,61 870,55 880,49 890,43 900,38 910,34 920,31 930,29 940,28 950,29 960,31 970,34 980,38 990,43 1000,48 1010,54 1020,60 1030,65 1040,70 1050,74 1060,77 1070,79 1079,80
+        L 1079,280 0,280 Z
+        "
+                fill="#ebccc4"></path>
+        </svg>
+    </div>
+</section>
+
+<script>
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+    gsap.registerPlugin(ScrollTrigger);
+
+    if (typeof window !== "undefined") {
+        document.addEventListener("DOMContentLoaded", () => {
+            gsap.set("#texto-esperamos", { opacity: 0, y: -10 });
+            gsap.set("#onda-svg", { opacity: 0, y: 40 });
+            gsap.set("#logo-final", { opacity: 0, scale: 0.7 });
+            gsap.set("#flor-lat-izq", { opacity: 0, x: -40 });
+            gsap.set("#flor-lat-der", { opacity: 0, x: 40 });
+
+            ScrollTrigger.create({
+                trigger: "#texto-esperamos-container",
+                start: "top 85%",
+                onEnter: () => {
+                    const tl = gsap.timeline();
+                    tl.to(
+                        "#texto-esperamos",
+                        { opacity: 1, y: 0, duration: 0.9, ease: "power2.out" },
+                        0,
+                    )
+                        .to(
+                            "#onda-svg",
+                            {
+                                opacity: 1,
+                                y: 0,
+                                duration: 1,
+                                ease: "power2.out",
+                            },
+                            0.5,
+                        )
+                        .to(
+                            "#flor-lat-izq",
+                            {
+                                opacity: 1,
+                                x: 0,
+                                duration: 1,
+                                ease: "power2.out",
+                            },
+                            0.7,
+                        )
+                        .to(
+                            "#flor-lat-der",
+                            {
+                                opacity: 1,
+                                x: 0,
+                                duration: 1,
+                                ease: "power2.out",
+                            },
+                            0.7,
+                        )
+                        .to(
+                            "#logo-final",
+                            {
+                                opacity: 1,
+                                scale: 1,
+                                duration: 1,
+                                ease: "back.out(1.5)",
+                            },
+                            0.9,
+                        );
+                },
+            });
+        });
+    }
+</script>
+
+<style>
+    section {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        padding-bottom: 0 !important;
+    }
+</style>
