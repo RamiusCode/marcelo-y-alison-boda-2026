@@ -44,7 +44,7 @@
                 </div>
             </div>
 
-            <!-- NOMBRES -->
+            <!-- NOMBRES: en flujo normal, debajo de flores visualmente pero con margin negativo para subirlos al centro de las flores -->
             <div id="nombres" class="relative z-10 text-center w-full -mt-16">
                 <div
                     class="font-cathylise text-[#63778d] leading-none"
@@ -77,8 +77,6 @@
     if (typeof window !== "undefined") {
         gsap.registerPlugin(ScrollTrigger);
 
-        // Todos los set juntos antes del timeline
-        gsap.set("#nos-casamos", { opacity: 0, y: -20 });
         gsap.set("#silueta", { opacity: 0, y: -40, scale: 0.95 });
         gsap.set("#flor-izq", { opacity: 0, x: -60 });
         gsap.set("#flor-der", { opacity: 0, x: 60 });
@@ -92,35 +90,60 @@
         });
 
         tl.to(
-            "#nos-casamos",
-            { opacity: 1, y: 0, duration: 1.0, ease: "power2.out" },
+            "#silueta",
+            {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                duration: 1.4,
+                ease: "power3.out",
+            },
             0,
         )
             .to(
-                "#silueta",
+                "#flor-izq",
                 {
                     opacity: 1,
-                    y: 0,
-                    scale: 1,
-                    duration: 1.4,
-                    ease: "power3.out",
+                    x: 0,
+                    duration: 1.2,
+                    ease: "power2.out",
                 },
-                0,
-            )
-            .to(
-                "#flor-izq",
-                { opacity: 1, x: 0, duration: 1.2, ease: "power2.out" },
                 0.5,
             )
             .to(
                 "#flor-der",
-                { opacity: 1, x: 0, duration: 1.2, ease: "power2.out" },
+                {
+                    opacity: 1,
+                    x: 0,
+                    duration: 1.2,
+                    ease: "power2.out",
+                },
                 0.5,
             )
             .to(
                 "#nombres",
-                { opacity: 1, scale: 1, duration: 1.1, ease: "back.out(1.3)" },
+                {
+                    opacity: 1,
+                    scale: 1,
+                    duration: 1.1,
+                    ease: "back.out(1.3)",
+                },
                 0.9,
             );
+
+        // En los gsap.set:
+        gsap.set("#nos-casamos", { opacity: 0, y: -20 });
+
+        // En el timeline, antes de silueta:
+        tl.to(
+            "#nos-casamos",
+            {
+                opacity: 1,
+                y: 0,
+                duration: 1.0,
+                ease: "power2.out",
+            },
+            0,
+        );
     }
 </script>
