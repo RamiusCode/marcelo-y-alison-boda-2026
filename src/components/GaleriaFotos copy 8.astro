@@ -194,12 +194,18 @@
         <div class="flex justify-center mt-6 mb-2" id="btn-galeria-container">
             <button
                 id="btn-ver-galeria"
-                class="boton-galeria group font-callingstone"
+                class="group relative flex items-center gap-3 px-8 py-3 rounded-full transition-all duration-500 overflow-hidden"
+                style="border: 1px solid rgba(235,204,196,0.5); background: rgba(235,204,196,0.08);"
             >
+                <div
+                    class="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700"
+                    style="background: linear-gradient(90deg, transparent, rgba(235,204,196,0.15), transparent);"
+                >
+                </div>
                 <svg
-                    class="w-4 h-4 transition-transform duration-300 group-hover:-translate-y-0.5"
+                    class="w-4 h-4 flex-shrink-0"
                     fill="none"
-                    stroke="currentColor"
+                    stroke="#ebccc4"
                     viewBox="0 0 24 24"
                 >
                     <rect
@@ -231,7 +237,13 @@
                         rx="1"
                         stroke-width="1.5"></rect>
                 </svg>
-                Ver Galería
+                <span
+                    class="font-callingstone text-[#ebccc4] tracking-[0.2em] text-sm uppercase"
+                    >Ver Galería</span
+                >
+                <span class="font-callingstone text-[#ebccc4]/40 text-xs"
+                    >9</span
+                >
             </button>
         </div>
 
@@ -376,6 +388,7 @@
 
     if (typeof window !== "undefined") {
         document.addEventListener("DOMContentLoaded", () => {
+            // ── ANIMACIONES ENTRADA ──
             gsap.set("#galeria-onda", { opacity: 0, y: -20 });
             gsap.set("#linea-deco", { opacity: 0 });
             gsap.set("#texto-historia", { opacity: 0, y: 20 });
@@ -469,6 +482,7 @@
                 },
             });
 
+            // ── FOTOS ──
             const fotos = [
                 { src: "/imagenes/foto1.webp", alt: "Nuestra historia 1" },
                 { src: "/imagenes/foto2.webp", alt: "Nuestra historia 2" },
@@ -489,12 +503,13 @@
             const progresoCirculo = document.getElementById("progreso-circulo");
             const miniaturasTrack = document.getElementById("miniaturas-track");
 
+            // ── CONSTRUIR SLIDES ──
             fotos.forEach((foto, i) => {
                 if (!viewport) return;
                 const slide = document.createElement("div");
                 slide.className = "slide-item absolute inset-0 cursor-pointer";
                 slide.setAttribute("data-index", i.toString());
-                slide.style.cssText = `opacity:${i === 0 ? "1" : "0"}; z-index:${i === 0 ? "2" : "1"};`;
+                slide.style.cssText = `opacity: ${i === 0 ? "1" : "0"}; z-index: ${i === 0 ? "2" : "1"};`;
                 slide.innerHTML = `
                     <div class="w-full h-full overflow-hidden">
                         <img src="${foto.src}" alt="${foto.alt}"
@@ -533,6 +548,7 @@
                 slide.addEventListener("click", () => abrirModal(i));
                 viewport.appendChild(slide);
 
+                // Dot lateral
                 if (dotsLateral) {
                     const dot = document.createElement("div");
                     dot.className =
@@ -541,6 +557,7 @@
                     dotsLateral.appendChild(dot);
                 }
 
+                // Miniatura
                 if (miniaturasTrack) {
                     const mini = document.createElement("button");
                     mini.className =
@@ -557,6 +574,7 @@
                 }
             });
 
+            // ── KEN BURNS con GSAP (solo transform, no afecta layout) ──
             let kbTween: gsap.core.Tween | null = null;
             function iniciarKenBurns(index: number) {
                 if (kbTween) kbTween.kill();
@@ -587,6 +605,7 @@
                 });
             }
 
+            // ── PROGRESO CIRCULAR ──
             let progresoTween: gsap.core.Tween | null = null;
             function iniciarProgreso() {
                 if (progresoTween) progresoTween.kill();
@@ -626,6 +645,7 @@
                     el.style.opacity = i === index ? "1" : "0.6";
                 });
 
+                // Scroll solo del track interno — nunca toca window.scroll
                 const miniActiva = document.querySelector(
                     `[data-mini="${index}"]`,
                 ) as HTMLElement;
@@ -639,6 +659,8 @@
                 }
             }
 
+            // ── IR A SLIDE con requestAnimationFrame puro ──
+            // No usa gsap.to para la transición → sin reflows → sin saltos de scroll
             function irASlide(nuevoIndex: number) {
                 if (rafId !== null) cancelAnimationFrame(rafId);
 
@@ -659,6 +681,7 @@
                 function frame(ts: number) {
                     if (!start) start = ts;
                     const t = Math.min((ts - start) / duracionMs, 1);
+                    // ease in-out cuadrático
                     const ease =
                         t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
                     slideSiguiente.style.opacity = String(ease);
@@ -691,6 +714,7 @@
                 }, DURACION);
             }
 
+            // Pausa hover
             const wrapper = document.getElementById("galeria-wrapper");
             wrapper?.addEventListener("mouseenter", () => {
                 pausado = true;
@@ -704,6 +728,7 @@
                 programarSiguiente();
             });
 
+            // Swipe táctil
             let touchX = 0;
             viewport?.addEventListener(
                 "touchstart",
@@ -720,10 +745,11 @@
                 }
             });
 
+            // ── ARRANQUE ──
             iniciarKenBurns(0);
             actualizarDots(0);
 
-            // ── INTERSECTION OBSERVER ──
+            // ── INTERSECTION OBSERVER — pausa total sin interferir con scroll ──
             const observerGaleria = new IntersectionObserver(
                 (entries) => {
                     entries.forEach((entry) => {
@@ -737,6 +763,7 @@
                             autoTimer = null;
                             progresoTween?.pause();
                             kbTween?.pause();
+                            // Cancelar rAF pendiente
                             if (rafId !== null) {
                                 cancelAnimationFrame(rafId);
                                 rafId = null;
@@ -781,7 +808,7 @@
                 if (!modalDotsMini) return;
                 const d = document.createElement("div");
                 d.className = "modal-dot-mini rounded-full";
-                d.style.cssText = `width:${i === 0 ? "16px" : "4px"}; height:4px; background:${i === 0 ? "rgba(235,204,196,0.8)" : "rgba(235,204,196,0.2)"}; transition:all 0.4s;`;
+                d.style.cssText = `width:${i === 0 ? "16px" : "4px"}; height:4px; background:${i === 0 ? "rgba(235,204,196,0.8)" : "rgba(235,204,196,0.2)"}; transition: all 0.4s;`;
                 modalDotsMini.appendChild(d);
             });
 
@@ -960,26 +987,6 @@
     .miniatura-btn:hover {
         opacity: 1 !important;
         transform: scale(1.08);
-    }
-    .boton-galeria {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 10px 28px;
-        background: #ebccc4;
-        color: white;
-        border: none;
-        border-radius: 50px;
-        font-size: 14px;
-        font-weight: 600;
-        letter-spacing: 0.2em;
-        cursor: pointer;
-        transition: all 0.3s ease;
-    }
-    .boton-galeria:hover {
-        background: #4e6070;
-        box-shadow: 0 4px 16px rgba(99, 119, 141, 0.4);
-        transform: translateY(-2px);
     }
     @keyframes ping {
         75%,

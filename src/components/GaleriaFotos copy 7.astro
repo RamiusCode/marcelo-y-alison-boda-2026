@@ -97,8 +97,9 @@
             </p>
         </div>
 
-        <!-- CARRUSEL -->
+        <!-- CARRUSEL CINEMATOGRÁFICO -->
         <div id="galeria-wrapper" class="relative w-full">
+            <!-- Frame decorativo -->
             <div
                 class="absolute -inset-3 rounded-[2rem] pointer-events-none z-0"
             >
@@ -120,6 +121,7 @@
                 </div>
             </div>
 
+            <!-- Slides -->
             <div
                 class="relative overflow-hidden rounded-[1.5rem] z-10"
                 id="slides-viewport"
@@ -127,12 +129,14 @@
             >
             </div>
 
+            <!-- Overlay degradado inferior -->
             <div
                 class="absolute bottom-0 left-0 right-0 h-32 z-20 pointer-events-none rounded-b-[1.5rem]"
                 style="background: linear-gradient(to top, rgba(0,0,0,0.45), transparent);"
             >
             </div>
 
+            <!-- Número flotante -->
             <div
                 class="absolute bottom-5 left-1/2 -translate-x-1/2 z-30 flex items-center gap-3"
             >
@@ -145,6 +149,7 @@
                 <div class="w-6 h-px bg-white/40"></div>
             </div>
 
+            <!-- Progreso circular -->
             <div class="absolute top-4 right-4 z-30">
                 <svg
                     width="36"
@@ -173,6 +178,7 @@
                 </svg>
             </div>
 
+            <!-- Dots laterales -->
             <div
                 class="absolute left-3 top-1/2 -translate-y-1/2 z-30 flex flex-col gap-2"
                 id="dots-lateral"
@@ -180,64 +186,9 @@
             </div>
         </div>
 
-        <!-- MINIATURAS -->
-        <div class="mt-4 mb-2" id="miniaturas-container">
-            <div
-                class="flex gap-2 overflow-x-auto pb-2 snap-x snap-mandatory"
-                id="miniaturas-track"
-                style="scrollbar-width: none; -ms-overflow-style: none;"
-            >
-            </div>
-        </div>
-
-        <!-- BOTÓN VER GALERÍA -->
-        <div class="flex justify-center mt-6 mb-2" id="btn-galeria-container">
-            <button
-                id="btn-ver-galeria"
-                class="boton-galeria group font-callingstone"
-            >
-                <svg
-                    class="w-4 h-4 transition-transform duration-300 group-hover:-translate-y-0.5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                >
-                    <rect
-                        x="3"
-                        y="3"
-                        width="7"
-                        height="7"
-                        rx="1"
-                        stroke-width="1.5"></rect>
-                    <rect
-                        x="14"
-                        y="3"
-                        width="7"
-                        height="7"
-                        rx="1"
-                        stroke-width="1.5"></rect>
-                    <rect
-                        x="3"
-                        y="14"
-                        width="7"
-                        height="7"
-                        rx="1"
-                        stroke-width="1.5"></rect>
-                    <rect
-                        x="14"
-                        y="14"
-                        width="7"
-                        height="7"
-                        rx="1"
-                        stroke-width="1.5"></rect>
-                </svg>
-                Ver Galería
-            </button>
-        </div>
-
-        <!-- Crédito -->
+        <!-- Crédito elegante -->
         <div
-            class="flex items-center justify-center gap-4 mt-4"
+            class="flex items-center justify-center gap-4 mt-6"
             id="credito-galeria"
         >
             <div
@@ -342,7 +293,7 @@
                     <div class="flex gap-1" id="modal-dots-mini"></div>
                     <span
                         class="font-cathylise text-white/30 text-base"
-                        id="modal-total">09</span
+                        id="modal-total">03</span
                     >
                 </div>
             </div>
@@ -376,13 +327,12 @@
 
     if (typeof window !== "undefined") {
         document.addEventListener("DOMContentLoaded", () => {
+            // ── ANIMACIONES ENTRADA ──
             gsap.set("#galeria-onda", { opacity: 0, y: -20 });
             gsap.set("#linea-deco", { opacity: 0 });
             gsap.set("#texto-historia", { opacity: 0, y: 20 });
             gsap.set("#flor-galeria", { opacity: 0, x: 30 });
             gsap.set("#galeria-wrapper", { opacity: 0, scale: 0.96 });
-            gsap.set("#miniaturas-container", { opacity: 0, y: 10 });
-            gsap.set("#btn-galeria-container", { opacity: 0, y: 10 });
             gsap.set("#credito-galeria", { opacity: 0 });
 
             ScrollTrigger.create({
@@ -432,26 +382,6 @@
                             "-=0.3",
                         )
                         .to(
-                            "#miniaturas-container",
-                            {
-                                opacity: 1,
-                                y: 0,
-                                duration: 0.6,
-                                ease: "power2.out",
-                            },
-                            "-=0.2",
-                        )
-                        .to(
-                            "#btn-galeria-container",
-                            {
-                                opacity: 1,
-                                y: 0,
-                                duration: 0.6,
-                                ease: "back.out(1.5)",
-                            },
-                            "-=0.3",
-                        )
-                        .to(
                             "#credito-galeria",
                             { opacity: 1, duration: 0.6 },
                             "-=0.3",
@@ -463,22 +393,15 @@
                     gsap.set("#texto-historia", { opacity: 0, y: 20 });
                     gsap.set("#flor-galeria", { opacity: 0, x: 30 });
                     gsap.set("#galeria-wrapper", { opacity: 0, scale: 0.96 });
-                    gsap.set("#miniaturas-container", { opacity: 0, y: 10 });
-                    gsap.set("#btn-galeria-container", { opacity: 0, y: 10 });
                     gsap.set("#credito-galeria", { opacity: 0 });
                 },
             });
 
+            // ── FOTOS ──
             const fotos = [
-                { src: "/imagenes/foto1.webp", alt: "Nuestra historia 1" },
+                { src: "/imagenes/Foto1.webp", alt: "Nuestra historia 1" },
                 { src: "/imagenes/foto2.webp", alt: "Nuestra historia 2" },
                 { src: "/imagenes/foto3.webp", alt: "Nuestra historia 3" },
-                { src: "/imagenes/foto4.webp", alt: "Nuestra historia 4" },
-                { src: "/imagenes/foto5.webp", alt: "Nuestra historia 5" },
-                { src: "/imagenes/foto6.webp", alt: "Nuestra historia 6" },
-                { src: "/imagenes/foto7.webp", alt: "Nuestra historia 7" },
-                { src: "/imagenes/foto8.webp", alt: "Nuestra historia 8" },
-                { src: "/imagenes/foto9.webp", alt: "Nuestra historia 9" },
             ];
 
             const DURACION = 4500;
@@ -487,14 +410,14 @@
             const dotsLateral = document.getElementById("dots-lateral");
             const numSlide = document.getElementById("num-slide");
             const progresoCirculo = document.getElementById("progreso-circulo");
-            const miniaturasTrack = document.getElementById("miniaturas-track");
 
             fotos.forEach((foto, i) => {
                 if (!viewport) return;
                 const slide = document.createElement("div");
                 slide.className = "slide-item absolute inset-0 cursor-pointer";
                 slide.setAttribute("data-index", i.toString());
-                slide.style.cssText = `opacity:${i === 0 ? "1" : "0"}; z-index:${i === 0 ? "2" : "1"};`;
+                slide.style.opacity = i === 0 ? "1" : "0";
+                slide.style.zIndex = i === 0 ? "2" : "1";
                 slide.innerHTML = `
                     <div class="w-full h-full overflow-hidden">
                         <img src="${foto.src}" alt="${foto.alt}"
@@ -537,23 +460,8 @@
                     const dot = document.createElement("div");
                     dot.className =
                         "dot-lat transition-all duration-500 rounded-full";
-                    dot.style.cssText = `width:${i === 0 ? "8px" : "4px"}; height:${i === 0 ? "8px" : "4px"}; background:${i === 0 ? "rgba(235,204,196,0.9)" : "rgba(235,204,196,0.3)"}`;
+                    dot.style.cssText = `width: ${i === 0 ? "8px" : "4px"}; height: ${i === 0 ? "8px" : "4px"}; background: ${i === 0 ? "rgba(235,204,196,0.9)" : "rgba(235,204,196,0.3)"}`;
                     dotsLateral.appendChild(dot);
-                }
-
-                if (miniaturasTrack) {
-                    const mini = document.createElement("button");
-                    mini.className =
-                        "miniatura-btn flex-shrink-0 snap-start rounded-xl overflow-hidden";
-                    mini.setAttribute("data-mini", i.toString());
-                    mini.style.cssText = `width:52px; height:52px; border:2px solid ${i === 0 ? "rgba(235,204,196,0.9)" : "rgba(235,204,196,0.2)"}; opacity:${i === 0 ? "1" : "0.6"};`;
-                    mini.innerHTML = `<img src="${foto.src}" alt="${foto.alt}" class="w-full h-full object-cover" />`;
-                    mini.addEventListener("click", () => {
-                        irASlide(i);
-                        clearTimeout(autoTimer);
-                        programarSiguiente();
-                    });
-                    miniaturasTrack.appendChild(mini);
                 }
             });
 
@@ -570,12 +478,6 @@
                     { scale: 1.08, x: "-2%", y: "-2%" },
                     { scale: 1.08, x: "2%", y: "-1%" },
                     { scale: 1.06, x: "-1%", y: "2%" },
-                    { scale: 1.07, x: "1%", y: "-2%" },
-                    { scale: 1.06, x: "-2%", y: "1%" },
-                    { scale: 1.08, x: "2%", y: "2%" },
-                    { scale: 1.07, x: "-1%", y: "-1%" },
-                    { scale: 1.06, x: "2%", y: "-2%" },
-                    { scale: 1.08, x: "-2%", y: "2%" },
                 ];
                 const d = dirs[index % dirs.length];
                 kbTween = gsap.to(img, {
@@ -600,9 +502,8 @@
             }
 
             let slideActual = 0;
-            let autoTimer: any;
+            let autoTimer: ReturnType<typeof setTimeout>;
             let pausado = false;
-            let rafId: number | null = null;
 
             function actualizarDots(index: number) {
                 document.querySelectorAll(".dot-lat").forEach((d, i) => {
@@ -616,66 +517,25 @@
                 });
                 if (numSlide)
                     numSlide.textContent = String(index + 1).padStart(2, "0");
-
-                document.querySelectorAll(".miniatura-btn").forEach((m, i) => {
-                    const el = m as HTMLElement;
-                    el.style.border =
-                        i === index
-                            ? "2px solid rgba(235,204,196,0.9)"
-                            : "2px solid rgba(235,204,196,0.2)";
-                    el.style.opacity = i === index ? "1" : "0.6";
-                });
-
-                const miniActiva = document.querySelector(
-                    `[data-mini="${index}"]`,
-                ) as HTMLElement;
-                const track = document.getElementById("miniaturas-track");
-                if (miniActiva && track) {
-                    const offsetLeft =
-                        miniActiva.offsetLeft -
-                        track.clientWidth / 2 +
-                        miniActiva.clientWidth / 2;
-                    track.scrollTo({ left: offsetLeft, behavior: "smooth" });
-                }
             }
 
             function irASlide(nuevoIndex: number) {
-                if (rafId !== null) cancelAnimationFrame(rafId);
-
                 const slides = document.querySelectorAll(".slide-item");
                 const anterior = slideActual;
                 slideActual = (nuevoIndex + fotos.length) % fotos.length;
-
                 const slideAnterior = slides[anterior] as HTMLElement;
                 const slideSiguiente = slides[slideActual] as HTMLElement;
-
-                slideAnterior.style.zIndex = "2";
-                slideSiguiente.style.zIndex = "3";
-                slideSiguiente.style.opacity = "0";
-
-                const duracionMs = 1400;
-                let start: number | null = null;
-
-                function frame(ts: number) {
-                    if (!start) start = ts;
-                    const t = Math.min((ts - start) / duracionMs, 1);
-                    const ease =
-                        t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
-                    slideSiguiente.style.opacity = String(ease);
-                    slideAnterior.style.opacity = String(1 - ease);
-
-                    if (t < 1) {
-                        rafId = requestAnimationFrame(frame);
-                    } else {
-                        slideSiguiente.style.opacity = "1";
-                        slideSiguiente.style.zIndex = "2";
-                        slideAnterior.style.opacity = "0";
-                        slideAnterior.style.zIndex = "1";
-                        rafId = null;
-                    }
-                }
-
-                rafId = requestAnimationFrame(frame);
+                gsap.set(slideSiguiente, { opacity: 0, zIndex: 3 });
+                gsap.set(slideAnterior, { zIndex: 2 });
+                gsap.to(slideSiguiente, {
+                    opacity: 1,
+                    duration: 1.4,
+                    ease: "power2.inOut",
+                    onComplete: () => {
+                        gsap.set(slideAnterior, { opacity: 0, zIndex: 1 });
+                        gsap.set(slideSiguiente, { zIndex: 2 });
+                    },
+                });
                 actualizarDots(slideActual);
                 iniciarKenBurns(slideActual);
                 iniciarProgreso();
@@ -721,34 +581,9 @@
             });
 
             iniciarKenBurns(0);
+            iniciarProgreso();
+            programarSiguiente();
             actualizarDots(0);
-
-            // ── INTERSECTION OBSERVER ──
-            const observerGaleria = new IntersectionObserver(
-                (entries) => {
-                    entries.forEach((entry) => {
-                        if (entry.isIntersecting) {
-                            pausado = false;
-                            iniciarProgreso();
-                            programarSiguiente();
-                        } else {
-                            pausado = true;
-                            clearTimeout(autoTimer);
-                            autoTimer = null;
-                            progresoTween?.pause();
-                            kbTween?.pause();
-                            if (rafId !== null) {
-                                cancelAnimationFrame(rafId);
-                                rafId = null;
-                            }
-                        }
-                    });
-                },
-                { threshold: 0, rootMargin: "0px" },
-            );
-
-            const galeriaSection = document.getElementById("seccion-galeria");
-            if (galeriaSection) observerGaleria.observe(galeriaSection);
 
             // ── MODAL ──
             const modal = document.getElementById("modal-galeria");
@@ -759,7 +594,6 @@
             const btnAnterior = document.getElementById("btn-anterior");
             const btnSiguiente = document.getElementById("btn-siguiente");
             const cerrarModalBtn = document.getElementById("cerrar-modal");
-            const btnVerGaleria = document.getElementById("btn-ver-galeria");
 
             if (modalTotal)
                 modalTotal.textContent = String(fotos.length).padStart(2, "0");
@@ -770,8 +604,8 @@
                 slide.className =
                     "min-w-full flex items-center justify-center px-2";
                 slide.innerHTML = `
-                    <div class="relative w-full rounded-2xl overflow-hidden" style="border:1px solid rgba(235,204,196,0.15);">
-                        <img src="${foto.src}" alt="${foto.alt}" class="w-full h-auto max-h-[80vh] object-contain" style="background:rgba(0,0,0,0.3);" />
+                    <div class="relative w-full rounded-2xl overflow-hidden" style="border: 1px solid rgba(235,204,196,0.15);">
+                        <img src="${foto.src}" alt="${foto.alt}" class="w-full h-auto max-h-[80vh] object-contain" style="background: rgba(0,0,0,0.3);" />
                     </div>
                 `;
                 modalTrack.appendChild(slide);
@@ -780,8 +614,9 @@
             fotos.forEach((_, i) => {
                 if (!modalDotsMini) return;
                 const d = document.createElement("div");
-                d.className = "modal-dot-mini rounded-full";
-                d.style.cssText = `width:${i === 0 ? "16px" : "4px"}; height:4px; background:${i === 0 ? "rgba(235,204,196,0.8)" : "rgba(235,204,196,0.2)"}; transition:all 0.4s;`;
+                d.className =
+                    "modal-dot-mini rounded-full transition-all duration-400";
+                d.style.cssText = `width: ${i === 0 ? "16px" : "4px"}; height: 4px; background: ${i === 0 ? "rgba(235,204,196,0.8)" : "rgba(235,204,196,0.2)"}`;
                 modalDotsMini.appendChild(d);
             });
 
@@ -839,8 +674,6 @@
                 if (!modal) return;
                 pausado = true;
                 clearTimeout(autoTimer);
-                progresoTween?.pause();
-                kbTween?.pause();
                 modal.classList.remove("hidden");
                 modal.classList.add("flex");
                 document.body.style.overflow = "hidden";
@@ -890,7 +723,6 @@
                 });
             };
 
-            btnVerGaleria?.addEventListener("click", () => abrirModal(0));
             btnAnterior?.addEventListener("click", (e) => {
                 e.stopPropagation();
                 moverModal(indiceModal - 1);
@@ -935,12 +767,9 @@
 <style>
     #slides-viewport {
         position: relative;
-        contain: strict;
-        will-change: transform;
     }
     .slide-item {
         will-change: opacity;
-        contain: layout style;
     }
     .slide-img {
         will-change: transform;
@@ -948,38 +777,6 @@
     #modal-track {
         will-change: transform;
         display: flex;
-    }
-    #miniaturas-track::-webkit-scrollbar {
-        display: none;
-    }
-    .miniatura-btn {
-        transition:
-            border 0.3s,
-            opacity 0.3s;
-    }
-    .miniatura-btn:hover {
-        opacity: 1 !important;
-        transform: scale(1.08);
-    }
-    .boton-galeria {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 10px 28px;
-        background: #ebccc4;
-        color: white;
-        border: none;
-        border-radius: 50px;
-        font-size: 14px;
-        font-weight: 600;
-        letter-spacing: 0.2em;
-        cursor: pointer;
-        transition: all 0.3s ease;
-    }
-    .boton-galeria:hover {
-        background: #4e6070;
-        box-shadow: 0 4px 16px rgba(99, 119, 141, 0.4);
-        transform: translateY(-2px);
     }
     @keyframes ping {
         75%,
