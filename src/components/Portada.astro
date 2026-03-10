@@ -49,7 +49,7 @@ const { invitado = "Roberto Gombes Ferrutino y Sra." } = Astro.props;
             </div>
 
             <!-- CAJA INVITADO -->
-            <div
+            <!-- <div
                 id="nombre-invitado"
                 class="w-full border border-[#c9968d] px-5 py-3 text-center max-w-xs"
             >
@@ -60,6 +60,22 @@ const { invitado = "Roberto Gombes Ferrutino y Sra." } = Astro.props;
                 </p>
                 <p
                     class="font-callingstone text-[#63778d] tracking-wider text-sm"
+                >
+                    {invitado}
+                </p>
+            </div> -->
+
+            <div
+                id="nombre-invitado"
+                class="w-full border border-[#c9968d] px-5 py-3 flex items-center justify-center gap-3 max-w-xs"
+            >
+                <p
+                    class="font-callingstone text-[10px] tracking-[0.3em] uppercase text-[#63778d]"
+                >
+                    Para
+                </p>
+                <p
+                    class="font-callingstone text-[#63778d] tracking-wider text-xs whitespace-nowrap"
                 >
                     {invitado}
                 </p>
