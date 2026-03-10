@@ -63,130 +63,129 @@
       <p
         class="font-callingstone text-base text-[#63778d] tracking-widest leading-relaxed mb-4"
       >
-        Queremos que esta noche sea inolvidable. Construiremos recuerdos para
-        toda la vida. Para que todos podamos celebrar sin preocupaciones, la
-        fiesta será solo para adultos.
+        Queremos que esta noche sea inolvidable. Para que todos podamos celebrar
+        sin preocupaciones, la fiesta será solo para adultos.
+        <p
+          class="font-callingstone text-base text-[#c9968d] font-bold tracking-widest"
+        >
+          ¡NIÑOS A LA CAMA!
+        </p>
       </p>
-      <p
-        class="font-callingstone text-base text-[#ebccc4] font-bold tracking-widest"
-      >
-        ¡NIÑOS A LA CAMA!
-      </p>
+    </div>
+
+    <!-- FLOR ABAJO IZQUIERDA — espejada -->
+    <div class="relative w-full h-32 pointer-events-none">
+      <img
+        src="/imagenes/florabajo.png"
+        alt=""
+        id="flores-ninos"
+        class="absolute bottom-10 -left-3 w-56 sm:w-44 object-contain z-20 scale-x-[-1]"
+      />
     </div>
   </div>
 
-  <!-- FLOR ABAJO IZQUIERDA — espejada -->
-  <div class="relative w-full h-32 pointer-events-none">
-    <img
-      src="/imagenes/florabajo.png"
-      alt=""
-      id="flores-ninos"
-      class="absolute bottom-10 -left-3 w-56 sm:w-44 object-contain z-20 scale-x-[-1]"
-    />
-  </div>
-</section>
+  <script>
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+    gsap.registerPlugin(ScrollTrigger);
 
-<script>
-  import { gsap } from "gsap";
-  import { ScrollTrigger } from "gsap/ScrollTrigger";
-  gsap.registerPlugin(ScrollTrigger);
+    if (typeof window !== "undefined") {
+      document.addEventListener("DOMContentLoaded", () => {
+        gsap.set("#ninos-onda", { opacity: 0, y: -20 });
+        gsap.set("#hoja-float-izq", { opacity: 0, x: -40 });
+        gsap.set("#hoja-float-der", { opacity: 0, x: 40 });
+        gsap.set("#icono-as", { opacity: 0, scale: 0.8 });
+        gsap.set("#texto-ninos2", { opacity: 0, y: 20 });
+        gsap.set("#flores-ninos", { opacity: 0, x: -30 });
 
-  if (typeof window !== "undefined") {
-    document.addEventListener("DOMContentLoaded", () => {
-      gsap.set("#ninos-onda", { opacity: 0, y: -20 });
-      gsap.set("#hoja-float-izq", { opacity: 0, x: -40 });
-      gsap.set("#hoja-float-der", { opacity: 0, x: 40 });
-      gsap.set("#icono-as", { opacity: 0, scale: 0.8 });
-      gsap.set("#texto-ninos2", { opacity: 0, y: 20 });
-      gsap.set("#flores-ninos", { opacity: 0, x: -30 });
+        ScrollTrigger.create({
+          trigger: "#seccion-ninos",
+          start: "top 85%",
+          onEnter: () => {
+            const tl = gsap.timeline();
+            tl.to("#ninos-onda", {
+              opacity: 1,
+              y: 0,
+              duration: 0.8,
+              ease: "power2.out",
+            })
+              .to(
+                "#icono-as",
+                { opacity: 1, scale: 1, duration: 0.8, ease: "back.out(1.5)" },
+                "-=0.4",
+              )
+              .to(
+                "#texto-ninos2",
+                { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" },
+                "-=0.5",
+              )
+              .to(
+                "#hoja-float-izq",
+                { opacity: 0.5, x: 0, duration: 1, ease: "power2.out" },
+                "-=0.6",
+              )
+              .to(
+                "#hoja-float-der",
+                { opacity: 0.5, x: 0, duration: 1, ease: "power2.out" },
+                "-=1",
+              )
+              .to(
+                "#flores-ninos",
+                { opacity: 1, x: 0, duration: 0.8, ease: "power2.out" },
+                "-=0.5",
+              );
 
-      ScrollTrigger.create({
-        trigger: "#seccion-ninos",
-        start: "top 85%",
-        onEnter: () => {
-          const tl = gsap.timeline();
-          tl.to("#ninos-onda", {
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            ease: "power2.out",
-          })
-            .to(
-              "#icono-as",
-              { opacity: 1, scale: 1, duration: 0.8, ease: "back.out(1.5)" },
-              "-=0.4",
-            )
-            .to(
-              "#texto-ninos2",
-              { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" },
-              "-=0.5",
-            )
-            .to(
-              "#hoja-float-izq",
-              { opacity: 0.5, x: 0, duration: 1, ease: "power2.out" },
-              "-=0.6",
-            )
-            .to(
-              "#hoja-float-der",
-              { opacity: 0.5, x: 0, duration: 1, ease: "power2.out" },
-              "-=1",
-            )
-            .to(
-              "#flores-ninos",
-              { opacity: 1, x: 0, duration: 0.8, ease: "power2.out" },
-              "-=0.5",
-            );
-
-          gsap.to("#hoja-float-izq", {
-            y: -10,
-            rotation: -5,
-            duration: 3,
-            ease: "sine.inOut",
-            yoyo: true,
-            repeat: -1,
-            delay: 1.2,
-          });
-          gsap.to("#hoja-float-der", {
-            y: 10,
-            rotation: 5,
-            duration: 3.5,
-            ease: "sine.inOut",
-            yoyo: true,
-            repeat: -1,
-            delay: 1.5,
-          });
-        },
-        onLeaveBack: () => {
-          gsap.set("#ninos-onda", { opacity: 0, y: -20 });
-          gsap.set("#hoja-float-izq", { opacity: 0, x: -40 });
-          gsap.set("#hoja-float-der", { opacity: 0, x: 40 });
-          gsap.set("#icono-as", { opacity: 0, scale: 0.8 });
-          gsap.set("#texto-ninos2", { opacity: 0, y: 20 });
-          gsap.set("#flores-ninos", { opacity: 0, x: -30 });
-        },
+            gsap.to("#hoja-float-izq", {
+              y: -10,
+              rotation: -5,
+              duration: 3,
+              ease: "sine.inOut",
+              yoyo: true,
+              repeat: -1,
+              delay: 1.2,
+            });
+            gsap.to("#hoja-float-der", {
+              y: 10,
+              rotation: 5,
+              duration: 3.5,
+              ease: "sine.inOut",
+              yoyo: true,
+              repeat: -1,
+              delay: 1.5,
+            });
+          },
+          onLeaveBack: () => {
+            gsap.set("#ninos-onda", { opacity: 0, y: -20 });
+            gsap.set("#hoja-float-izq", { opacity: 0, x: -40 });
+            gsap.set("#hoja-float-der", { opacity: 0, x: 40 });
+            gsap.set("#icono-as", { opacity: 0, scale: 0.8 });
+            gsap.set("#texto-ninos2", { opacity: 0, y: 20 });
+            gsap.set("#flores-ninos", { opacity: 0, x: -30 });
+          },
+        });
       });
-    });
-  }
-</script>
+    }
+  </script>
 
-<style>
-  #card-mensaje-ninos2 {
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    transition: all 0.3s ease;
-  }
-  #card-mensaje-ninos2:hover {
-    background: rgba(255, 255, 255, 0.12);
-    box-shadow: 0 20px 50px rgba(235, 204, 196, 0.15);
-    transform: translateY(-4px);
-  }
-  .icono-color {
-    filter: brightness(0) saturate(100%) invert(46%) sepia(40%) saturate(400%)
-      hue-rotate(170deg) brightness(90%) contrast(90%);
-  }
-  #hoja-float-izq,
-  #hoja-float-der {
-    will-change: transform;
-  }
-</style>
+  <style>
+    #card-mensaje-ninos2 {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      transition: all 0.3s ease;
+    }
+    #card-mensaje-ninos2:hover {
+      background: rgba(255, 255, 255, 0.12);
+      box-shadow: 0 20px 50px rgba(235, 204, 196, 0.15);
+      transform: translateY(-4px);
+    }
+    .icono-color {
+      filter: brightness(0) saturate(100%) invert(46%) sepia(40%) saturate(400%)
+        hue-rotate(170deg) brightness(90%) contrast(90%);
+    }
+    #hoja-float-izq,
+    #hoja-float-der {
+      will-change: transform;
+    }
+  </style>
+</section>

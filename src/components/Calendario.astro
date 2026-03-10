@@ -41,7 +41,7 @@
   <div class="max-w-sm sm:max-w-sm md:max-w-md mx-auto px-4">
     <!-- CARD -->
     <div
-      class="bg-white rounded-3xl shadow-lg border-2 border-[#ebccc4] p-4 md:p-8 relative z-10"
+      class="bg-white rounded-3xl shadow-lg border-2 border-[#c9968d] p-4 md:p-8 relative z-10"
       id="calendario-card"
     >
       <!-- TÍTULO DEL MES -->
@@ -49,50 +49,50 @@
         class="flex items-center justify-center gap-4 md:gap-6 mb-6"
         id="titulo-mes-container"
       >
-        <div class="w-12 h-px bg-[#ebccc4]" id="linea-izq"></div>
+        <div class="w-12 h-px bg-[#c9968d]" id="linea-izq"></div>
         <h3
           class="font-cathylise text-[#63778d]"
           style="font-size: clamp(2rem, 8vw, 3rem);"
           id="nombre-mes"
         >
         </h3>
-        <div class="w-12 h-px bg-[#ebccc4]" id="linea-der"></div>
+        <div class="w-12 h-px bg-[#c9968d]" id="linea-der"></div>
       </div>
 
       <!-- DÍAS DE LA SEMANA -->
       <div class="grid grid-cols-7 gap-1 md:gap-2 mb-3">
         <div
-          class="text-center font-callingstone text-sm md:text-base text-[#ebccc4] font-bold"
+          class="text-center font-callingstone text-sm md:text-base text-[#c9968d] font-bold"
         >
           D
         </div>
         <div
-          class="text-center font-callingstone text-sm md:text-base text-[#ebccc4] font-bold"
+          class="text-center font-callingstone text-sm md:text-base text-[#c9968d] font-bold"
         >
           L
         </div>
         <div
-          class="text-center font-callingstone text-sm md:text-base text-[#ebccc4] font-bold"
+          class="text-center font-callingstone text-sm md:text-base text-[#c9968d] font-bold"
         >
           M
         </div>
         <div
-          class="text-center font-callingstone text-sm md:text-base text-[#ebccc4] font-bold"
+          class="text-center font-callingstone text-sm md:text-base text-[#c9968d] font-bold"
         >
           M
         </div>
         <div
-          class="text-center font-callingstone text-sm md:text-base text-[#ebccc4] font-bold"
+          class="text-center font-callingstone text-sm md:text-base text-[#c9968d] font-bold"
         >
           J
         </div>
         <div
-          class="text-center font-callingstone text-sm md:text-base text-[#ebccc4] font-bold"
+          class="text-center font-callingstone text-sm md:text-base text-[#c9968d] font-bold"
         >
           V
         </div>
         <div
-          class="text-center font-callingstone text-sm md:text-base text-[#ebccc4] font-bold"
+          class="text-center font-callingstone text-sm md:text-base text-[#c9968d] font-bold"
         >
           S
         </div>
@@ -160,7 +160,7 @@
         diaDiv.innerHTML = `<span class="font-callingstone text-xl md:text-2xl text-white font-bold">${dia}</span>`;
       } else {
         diaDiv.className =
-          "aspect-square flex items-center justify-center rounded-lg hover:bg-[#ebccc4]/20 transition-all dia-calendario";
+          "aspect-square flex items-center justify-center rounded-lg hover:bg-[#c9968d]/20 transition-all dia-calendario";
         diaDiv.innerHTML = `<span class="font-callingstone text-sm md:text-base text-[#63778d]">${dia}</span>`;
       }
       diasContainer.appendChild(diaDiv);
