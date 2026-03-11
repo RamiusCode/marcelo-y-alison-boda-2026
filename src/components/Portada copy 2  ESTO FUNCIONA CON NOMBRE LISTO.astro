@@ -1,10 +1,6 @@
 ---
 // src/components/Portada.astro
 const { invitado = "Roberto Gombes Ferrutino y Sra." } = Astro.props;
-
-const nombreFormateado = invitado.includes(" y Srta.")
-    ? invitado.replace(" y Srta.", "\ny Srta.")
-    : invitado;
 ---
 
 <section
@@ -64,9 +60,8 @@ const nombreFormateado = invitado.includes(" y Srta.")
                 </p>
                 <p
                     class="font-callingstone text-[#63778d] tracking-[0.3em] text-[9px] uppercase leading-relaxed"
-                    style="white-space: pre-line;"
                 >
-                    {nombreFormateado}
+                    {invitado}
                 </p>
             </div>
 
