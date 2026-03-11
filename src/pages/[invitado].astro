@@ -1,0 +1,52 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Portada from "../components/Portada.astro";
+import NombresFlores from "../components/NombresFlores.astro";
+import Reproductor from "../components/Reproductor.astro";
+import Dedicatoria from "../components/Dedicatoria.astro";
+import Nombres from "../components/Nombres.astro";
+import Fecha from "../components/Fecha.astro";
+import Contador from "../components/Contador.astro";
+import Calendario from "../components/Calendario.astro";
+import DireccionIglesia from "../components/DireccionIglesia.astro";
+import DireccionRecepcion from "../components/DireccionRecepcion.astro";
+import Itinerario from "../components/Itinerario.astro";
+import CodigoVestimenta from "../components/CodigoVestimenta.astro";
+import Regalo from "../components/Regalo.astro";
+import Restriccion from "../components/Restriccion.astro";
+import GaleriaFotos from "../components/GaleriaFotos.astro";
+import Despedida from "../components/Despedida.astro";
+import FloresAbajo from "../components/FloresAbajo.astro";
+import invitados from "../data/invitados.json";
+
+export function getStaticPaths() {
+    return invitados.map((inv) => ({
+        params: { invitado: inv.slug },
+        props: { nombre: inv.nombre },
+    }));
+}
+
+const { nombre } = Astro.props;
+---
+
+<Layout title="Boda Marcelo & Alisson">
+    <Portada invitado={nombre} />
+    <div id="contenido-principal">
+        <NombresFlores />
+        <Reproductor />
+        <Dedicatoria />
+        <Nombres />
+        <Fecha />
+        <Contador />
+        <Calendario />
+        <DireccionIglesia />
+        <DireccionRecepcion />
+        <Itinerario />
+        <CodigoVestimenta />
+        <Regalo />
+        <Restriccion />
+        <GaleriaFotos />
+        <Despedida />
+        <FloresAbajo />
+    </div>
+</Layout>
