@@ -1,10 +1,6 @@
 ---
 // src/components/Portada.astro
 const { invitado = "Roberto Gombes Ferrutino y Sra." } = Astro.props;
-
-const nombreFormateado = invitado.includes(" y Srta.")
-    ? invitado.replace(" y Srta.", "\ny Srta.")
-    : invitado;
 ---
 
 <section
@@ -31,7 +27,7 @@ const nombreFormateado = invitado.includes(" y Srta.")
         <div
             class="flex flex-col items-center justify-start flex-1 w-full px-8 gap-5 z-10 pt-6"
         >
-            <!-- INICIALES M&A -->
+            <!-- INICIALES M&A — M y A en azul, & en rosado -->
             <div id="iniciales" class="text-center leading-none">
                 <span
                     class="font-cathylise"
@@ -53,20 +49,51 @@ const nombreFormateado = invitado.includes(" y Srta.")
             </div>
 
             <!-- CAJA INVITADO -->
+            <!-- <div
+                id="nombre-invitado"
+                class="w-full border border-[#c9968d] px-5 py-3 text-center max-w-xs"
+            >
+                <p
+                    class="font-callingstone text-[10px] tracking-[0.3em] uppercase text-[#63778d] mb-1"
+                >
+                    Para
+                </p>
+                <p
+                    class="font-callingstone text-[#63778d] tracking-wider text-sm"
+                >
+                    {invitado}
+                </p>
+            </div> -->
+
+            <!-- <div
+                id="nombre-invitado"
+                class="w-full border border-[#c9968d] px-5 py-3 flex items-center justify-center gap-3 max-w-xs"
+            >
+                <p
+                    class="font-callingstone text-[10px] tracking-[0.3em] uppercase text-[#63778d]"
+                >
+                    Para
+                </p>
+                <p
+                    class="font-callingstone text-[#63778d] tracking-wider text-xs whitespace-nowrap"
+                >
+                    {invitado}
+                </p>
+            </div> -->
+
             <div
                 id="nombre-invitado"
-                class="w-full border border-[#c9968d] px-4 py-3 max-w-xs"
+                class="w-full border border-[#c9968d] px-2 py-4 max-w-xs"
             >
-                <!-- <p
+                <p
                     class="font-callingstone text-[9px] tracking-[0.3em] uppercase text-[#63778d] mb-2"
                 >
                     Señor.-
-                </p> -->
+                </p>
                 <p
-                    class="font-callingstone text-[#63778d] tracking-[0.3em] text-[9px] uppercase leading-relaxed"
-                    style="white-space: pre-line;"
+                    class="font-callingstone text-[#63778d] tracking-[0.3em] text-[9px] uppercase whitespace-nowrap"
                 >
-                    {nombreFormateado}
+                    {invitado}
                 </p>
             </div>
 
